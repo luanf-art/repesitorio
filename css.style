@@ -1,0 +1,203 @@
+/* Configurações Globais e Variáveis de Cores (Tema Claro Padrão) */
+:root {
+    --bg-principal: #f4f7f6;
+    --bg-card: #ffffff;
+    --texto-principal: #2d3748;
+    --texto-secundario: #718096;
+    --cor-acento: #3182ce;
+    --cor-acento-hover: #2b6cb0;
+    --borda: #e2e8f0;
+    --sombra: rgba(0, 0, 0, 0.05);
+}
+
+/* Variáveis para o Tema Escuro */
+[data-theme="dark"] {
+    --bg-principal: #1a202c;
+    --bg-card: #2d3748;
+    --texto-principal: #f7fafc;
+    --texto-secundario: #cbd5e0;
+    --cor-acento: #63b3ed;
+    --cor-acento-hover: #4299e1;
+    --borda: #4a5568;
+    --sombra: rgba(0, 0, 0, 0.3);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-principal);
+    color: var(--texto-principal);
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 3rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px var(--sombra);
+}
+
+.header-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.header-container p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Main Content e Layout dos Artigos */
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    position: relative;
+}
+
+article {
+    background-color: var(--bg-card);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px var(--sombra);
+    display: flex;
+    flex-direction: column; /* Padrão para telas menores (imagem em cima, texto embaixo) */
+}
+
+/* Quando a tela for maior (computador), imagem fica na esquerda e texto na direita */
+@media (min-width: 650px) {
+    article {
+        flex-direction: row;
+    }
+    article img {
+        width: 250px;
+        height: auto;
+        object-fit: cover;
+    }
+}
+
+article img {
+    background-color: #e2e8f0;
+    max-height: 250px;
+    object-fit: cover;
+}
+
+article > div {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+article h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--texto-principal);
+    line-height: 1.3;
+}
+
+.artigo-autor {
+    font-size: 0.85rem;
+    color: var(--texto-secundario);
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+article p {
+    color: var(--texto-principal);
+    margin-bottom: 1rem;
+}
+
+.artigo-fonte {
+    font-size: 0.85rem;
+    color: var(--texto-secundario);
+    margin-bottom: 1rem;
+}
+
+.artigo-fonte a {
+    color: var(--cor-acento);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.artigo-fonte a:hover {
+    text-decoration: underline;
+}
+
+/* Botões de Interação */
+.interacoes {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: auto;
+}
+
+.btn-like {
+    background-color: var(--bg-principal);
+    border: 1px solid var(--borda);
+    color: var(--texto-principal);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-weight: 500;
+}
+
+.btn-like:hover {
+    background-color: var(--borda);
+    transform: translateY(-1px);
+}
+
+.btn-like:active {
+    transform: translateY(0);
+}
+
+/* Botão Alternador de Tema Flutuante */
+.btn-tema-escuro {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--cor-acento);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.btn-tema-escuro:hover {
+    background-color: var(--cor-acento-hover);
+    transform: scale(1.1);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--borda);
+    margin-top: 4rem;
+}
